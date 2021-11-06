@@ -18,7 +18,6 @@ namespace MixyTopTime
 {
     public class Plugin : RocketPlugin<Config>
     {
-        #region Commands
         [RocketCommand("toptime", "", "", AllowedCaller.Both)]
         [RocketCommandPermission("mixy.toptime")]
         public void ToptimeCommand(IRocketPlayer caller)
@@ -117,7 +116,6 @@ namespace MixyTopTime
                 }
             }
         }
-        #endregion
         protected override void Load()
         {
             U.Events.OnPlayerConnected += Join;
@@ -195,7 +193,6 @@ namespace MixyTopTime
             Console.ResetColor();
         }
     }
-    #region Config
     public class Config : IRocketPluginConfiguration
     {
         public List<PlayerDb> PlayerDataBase = new List<PlayerDb>();
@@ -204,8 +201,6 @@ namespace MixyTopTime
             PlayerDataBase = new List<PlayerDb>();
         }
     }
-    #endregion
-    #region Models
     public class PlayerDb
     {
         [XmlAttribute]
@@ -222,5 +217,4 @@ namespace MixyTopTime
             this.PlayingTime = PlayingTime;
         }
     }
-    #endregion
 }
